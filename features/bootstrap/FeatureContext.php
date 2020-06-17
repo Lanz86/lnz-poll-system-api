@@ -70,4 +70,30 @@ class FeatureContext implements Context
             throw new Exception("Response was not JSON\n" . $this->responseBody);
         }
     }
+
+        /**
+     * @Then the response contains :arg1 records
+     */
+    public function theResponseContainsRecords($arg1)
+    {
+        $data=json_decode($this->responseBody);
+        $count = count($data);
+        return $count == $arg1;
+    }
+
+    /**
+     * @Then the question contains a title of :arg1
+     */
+    public function theQuestionContainsATitleOf($arg1)
+    {
+        $data = json_decode($this->responseBody);
+
+        if($data->title == $arg1) {
+            return true;
+        } else {
+            throw new Exception('The title does not match.');
+        }
+
+    }
+
 }
