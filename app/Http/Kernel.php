@@ -44,7 +44,8 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\Logging::class,
             'httpHeaders:Welcome in LNZ World!',
-            \App\Http\Middleware\TokenAuth::class,
+            //\App\Http\Middleware\TokenAuth::class,
+            \App\Http\Middleware\BasicAuth::class,
         ],
     ];
 
